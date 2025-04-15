@@ -21,10 +21,19 @@ const scareText = document.getElementById("scare-text");
 let drawCount = 0;
 let freeze = false;
 
+// Popup wird beim ersten Klick angezeigt
+let popupShown = false;
+
 document.body.addEventListener("click", () => {
   if (freeze) return;
 
-  popup.classList.remove("hidden");
+  // Zeige das Popup nur beim ersten Klick
+  if (!popupShown) {
+    popup.classList.remove("hidden");
+    popupShown = true;
+    return; // Erster Klick nur zum Anzeigen, kein Bildwechsel
+  }
+
   drawCount++;
 
   const isFinalDraw = drawCount === 4;
@@ -42,7 +51,5 @@ document.body.addEventListener("click", () => {
   if (isFinalDraw) {
     freeze = true;
     scareText.textContent = "Your final result 👑";
-    document.body.style.pointerEvents = "none";
-    popup.style.pointerEvents = "auto"; // Lass Popup noch reagieren z. B. für Buttons später
   }
 });
