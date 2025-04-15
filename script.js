@@ -1,14 +1,15 @@
 const rats = [
-  { name: "Cartoon Rat", img: "cartoon rat.png", sound: "sounds/ratte1.mp3" },
-  { name: "Sad Rat", img: "mouse-3194768-removebg-preview.png", sound: "sounds/ratte2.mp3" },
-  { name: "Partyratte", img: "images/ratte3.png", sound: "sounds/ratte3.mp3" },
-  { name: "Trashratte", img: "images/ratte4.png", sound: "sounds/ratte4.mp3" },
-  { name: "Trollratte", img: "images/ratte5.png", sound: "sounds/ratte5.mp3" },
+  { name: "Cartoon Rat", img: "images/cartoon rat.png", sound: "sounds/ratte1.mp3" },
+  { name: "Sad Rat", img: "images/mouse-3194768-removebg-preview.png", sound: "sounds/ratte2.mp3" },
+  { name: "Angry Rat", img: "images/rat-1388829-removebg-preview.png", sound: "sounds/ratte3.mp3" },
+  { name: "Secret Rat", img: "images/rat-440987-removebg-preview.png", sound: "sounds/ratte4.mp3" },
+  { name: "Sigma Rat", img: "images/rat-9497195-removebg-preview.png", sound: "sounds/ratte5.mp3" },
+  { name: "Rat Gang", img: "imageswildlife-3552300-removebg-preview.png", sound: "sounds/ratte5.mp3" },
 ];
 
 const legendary = {
-  name: "🔥 Legendary Rat 🔥",
-  img: "images/legendaere-ratte.png",
+  name: "🔥 Legendary 🔥",
+  img: "images/rat-9497195-removebg-preview.png",
   sound: "sounds/legend.mp3"
 };
 
