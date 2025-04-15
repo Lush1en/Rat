@@ -20,21 +20,14 @@ const scareText = document.getElementById("scare-text");
 
 let drawCount = 0;
 let freeze = false;
-
-  // Zeige das Popup nur beim ersten Klick
-  if (!popupShown) {
-    popup.classList.remove("hidden"); // Popup sichtbar machen
-    popupShown = true;
-    return; // Erster Klick nur zum Anzeigen, kein Bildwechsel
-  }
-
+let popupShown = false;
 
 document.body.addEventListener("click", () => {
   if (freeze) return;
 
   // Zeige das Popup nur beim ersten Klick
   if (!popupShown) {
-    popup.classList.remove("hidden");
+    popup.classList.remove("hidden"); // Popup sichtbar machen
     popupShown = true;
     return; // Erster Klick nur zum Anzeigen, kein Bildwechsel
   }
@@ -47,13 +40,15 @@ document.body.addEventListener("click", () => {
     ? legendary
     : rats[Math.floor(Math.random() * rats.length)];
 
-    // Bild und Name sichtbar machen (erst nach dem ersten Klick)
+  // Bild und Name sichtbar machen (erst nach dem ersten Klick)
   ratImage.classList.remove("hidden");
   ratName.classList.remove("hidden");
 
+  // Die gezogene Ratte anzeigen
   ratImage.src = rat.img;
   ratName.textContent = rat.name;
 
+  // Ton abspielen
   const audio = new Audio(rat.sound);
   audio.play();
 
