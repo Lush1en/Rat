@@ -1,1 +1,29 @@
+body {
+  background-color: #1e1e1e;
+  color: white;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-align: center;
+  user-select: none;
+  cursor: crosshair;
+}
+
+#popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2b2b2b;
+  padding: 20px;
+  border: 3px dashed #f0f;
+  border-radius: 16px;
+  z-index: 9999;
+}
+
+#popup img {
+  max-width: 300px;
+}
+
+.hidden {
+  display: none;
+}
 
