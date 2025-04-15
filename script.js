@@ -7,22 +7,22 @@ const rats = [
   { name: "Rats", img: "images/wildlife-3552300-removebg-preview.png", sound: "sounds/yeah-boy-114748.mp3", rarity: "Epic", chance: 0.1  },
 ];
 
-
 const popup = document.getElementById("popup");
 const ratImage = document.getElementById("rat-image");
 const ratName = document.getElementById("rat-name");
 
 let clicked = 0;
 
-
 popup.addEventListener("click", () => {
   if (clicked < 4) {
     // Ratte auswählen
     const rat = rats[Math.floor(Math.random() * rats.length)];
 
-    // Anzeigen
-    ratImage.src = rat.image;
-    ratName.textContent = rat.name;
+    // Bild und Name setzen
+    ratImage.src = rat.img;  // Das Bild wird gesetzt
+    ratName.textContent = rat.name;  // Der Name wird gesetzt
+
+    // Die Klasse 'hidden' entfernen, um das Bild und den Text sichtbar zu machen
     ratImage.classList.remove("hidden");
     ratName.classList.remove("hidden");
 
