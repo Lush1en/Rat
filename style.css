@@ -1,11 +1,17 @@
 body {
-  background-color: #1e1e1e;
+  background-image: url('images/graffiti-237656.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: white;
   font-family: "Comic Sans MS", cursive, sans-serif;
   text-align: center;
   user-select: none;
   cursor: crosshair;
+  height: 100vh;
+  margin: 0;
 }
+
 
 #popup {
   position: fixed;
