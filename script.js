@@ -14,13 +14,6 @@ const ratName = document.getElementById("rat-name");
 
 let clicked = 0;
 
-// Liste von Beispielratten
-const rats = [
-  { name: "Stinkratte", image: "images/ratte1.png" },
-  { name: "Laser-Ratte", image: "images/ratte2.png" },
-  { name: "Straßenratte", image: "images/ratte3.png" },
-  { name: "Goldratte", image: "images/ratte4.png" }
-];
 
 popup.addEventListener("click", () => {
   if (clicked < 4) {
