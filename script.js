@@ -21,8 +21,13 @@ const scareText = document.getElementById("scare-text");
 let drawCount = 0;
 let freeze = false;
 
-// Popup wird beim ersten Klick angezeigt
-let popupShown = false;
+  // Zeige das Popup nur beim ersten Klick
+  if (!popupShown) {
+    popup.classList.remove("hidden"); // Popup sichtbar machen
+    popupShown = true;
+    return; // Erster Klick nur zum Anzeigen, kein Bildwechsel
+  }
+
 
 document.body.addEventListener("click", () => {
   if (freeze) return;
@@ -41,6 +46,10 @@ document.body.addEventListener("click", () => {
   const rat = Math.random() < 0.1 && !isFinalDraw
     ? legendary
     : rats[Math.floor(Math.random() * rats.length)];
+
+    // Bild und Name sichtbar machen (erst nach dem ersten Klick)
+  ratImage.classList.remove("hidden");
+  ratName.classList.remove("hidden");
 
   ratImage.src = rat.img;
   ratName.textContent = rat.name;
