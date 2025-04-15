@@ -16,32 +16,20 @@ const legendary = {
 const popup = document.getElementById("popup");
 const ratImage = document.getElementById("rat-image");
 const ratName = document.getElementById("rat-name");
+const scareText = document.getElementById("scare-text");
 
+let drawCount = 0;
 let freeze = false;
 
 document.body.addEventListener("click", () => {
   if (freeze) return;
 
   popup.classList.remove("hidden");
+  drawCount++;
 
-  // Slot-Animation: 3x zufällige Bilder zeigen
-  let spinCount = 0;
-  const spinInterval = setInterval(() => {
-    const fakeRat = rats[Math.floor(Math.random() * rats.length)];
-    ratImage.src = fakeRat.img;
-    ratName.textContent = "???";
-    spinCount++;
+  const isFinalDraw = drawCount === 4;
 
-    if (spinCount >= 3) {
-      clearInterval(spinInterval);
-      showFinalRat();
-    }
-  }, 400);
-});
-
-function showFinalRat() {
-  const isLegendary = Math.random() < 0.1;
-  const rat = isLegendary
+  const rat = Math.random() < 0.1 && !isFinalDraw
     ? legendary
     : rats[Math.floor(Math.random() * rats.length)];
 
@@ -51,12 +39,10 @@ function showFinalRat() {
   const audio = new Audio(rat.sound);
   audio.play();
 
-  if (isLegendary) {
+  if (isFinalDraw) {
     freeze = true;
+    scareText.textContent = "Your final result 👑";
     document.body.style.pointerEvents = "none";
-    ratName.textContent += " 🏆";
-    // 🔥 Später hier Firebase aufrufen und andere blockieren
-  } else {
-    setTimeout(() => popup.classList.add("hidden"), 2000);
+    popup.style.pointerEvents = "auto"; // Lass Popup noch reagieren z. B. für Buttons später
   }
-}
+});
