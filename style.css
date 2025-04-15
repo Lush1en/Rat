@@ -1,10 +1,8 @@
-/* Reset + Body zentriert */
 body {
   margin: 0;
   padding: 0;
-  background: #111 url('images/graffiti-237656.jpg') no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Arial', sans-serif;
+  background: #111;
+  font-family: Arial, sans-serif;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -12,24 +10,22 @@ body {
   color: white;
 }
 
-/* Popup zentriert im Body */
 #popup {
   background-color: rgba(0, 0, 0, 0.85);
   padding: 30px 25px;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   text-align: center;
   width: 350px;
+  cursor: pointer;
 }
 
-/* Intro-Text */
 #scare-text {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-/* Rattenbild */
 #rat-image {
   width: 200px;
   height: auto;
@@ -38,32 +34,12 @@ body {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
-/* Rattenname */
 #rat-name {
   font-size: 20px;
   margin-top: 15px;
   font-weight: bold;
 }
 
-/* Klicktext unten */
-#click-text {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #ccc;
-}
-
-/* Versteckt */
 .hidden {
   display: none;
-}
-
-/* Farben für Seltenheiten */
-.common { color: #a0ffa0; }
-.uncommon { color: #60e0a0; }
-.rare { color: #50c0ff; }
-.epic { color: #bf80ff; }
-.mythic { color: #ff55aa; }
-.legendary {
-  color: gold;
-  text-shadow: 0 0 10px gold;
 }
