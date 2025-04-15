@@ -17,6 +17,7 @@ const popup = document.getElementById("popup");
 const ratImage = document.getElementById("rat-image");
 const ratName = document.getElementById("rat-name");
 const scareText = document.getElementById("scare-text");
+const clickText = document.getElementById("click-text");
 
 let drawCount = 0;
 let freeze = false;
@@ -25,11 +26,12 @@ let popupShown = false;
 document.body.addEventListener("click", () => {
   if (freeze) return;
 
-  // Zeige das Popup nur beim ersten Klick
+  // Zeige das Popup beim ersten Klick und entferne "CLICK ME"
   if (!popupShown) {
     popup.classList.remove("hidden"); // Popup sichtbar machen
+    scareText.textContent = "CLICK ME AGAIN"; // Ersetze den Text
     popupShown = true;
-    return; // Erster Klick nur zum Anzeigen, kein Bildwechsel
+    return; // Der erste Klick zeigt nur das Popup, aber noch keine Ratte
   }
 
   drawCount++;
@@ -40,7 +42,7 @@ document.body.addEventListener("click", () => {
     ? legendary
     : rats[Math.floor(Math.random() * rats.length)];
 
-  // Bild und Name sichtbar machen (erst nach dem ersten Klick)
+  // Bild und Name sichtbar machen (nach dem ersten Klick)
   ratImage.classList.remove("hidden");
   ratName.classList.remove("hidden");
 
@@ -52,8 +54,16 @@ document.body.addEventListener("click", () => {
   const audio = new Audio(rat.sound);
   audio.play();
 
-  if (isFinalDraw) {
+  // Zeige den Text "CLICK ME AGAIN" bis zur letzten Ratte
+  if (!isFinalDraw) {
+    clickText.classList.remove("hidden"); // Zeige den Text
+  } else {
+    // Final Result
     freeze = true;
-    scareText.textContent = "Your final result 👑";
+    scareText.textContent = "FINAL RESULT 🎉";
+    // Hebe den finalen Text hervor
+    scareText.style.fontSize = "30px";
+    scareText.style.color = "red";
+    scareText.style.fontWeight = "bold";
   }
 });
