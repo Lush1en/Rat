@@ -21,7 +21,7 @@ popup.addEventListener("click", () => {
     const rat = rats[Math.floor(Math.random() * rats.length)];
 
     // Anzeigen
-    ratImage.src = rat.image;
+    ratImage.src = rat.img;
     ratName.textContent = rat.name;
     ratImage.classList.remove("hidden");
     ratName.classList.remove("hidden");
