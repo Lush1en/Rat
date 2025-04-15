@@ -1,80 +1,58 @@
-/* Allgemeines Styling */
 body {
-  margin: 0;
-  padding: 0;
-  background: url('images/graffiti-237656.jpg') no-repeat center center fixed;
+  background-image: url('images/graffiti-237656.jpg');
   background-size: cover;
-  font-family: Arial, sans-serif;
+  background-position: center;
+  background-attachment: fixed;
   color: white;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-align: center;
+  user-select: none;
+  cursor: crosshair;
+  margin: 0;
+  height: 100vh;
 }
 
-/* Popup-Box */
 #popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(20, 20, 20, 0.9);
+  background: rgba(0, 0, 0, 0.8);
   padding: 30px;
   border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0,0,0,0.8);
-  width: 300px;
-  max-width: 90vw;
+  box-shadow: 0 0 20px #ff0000;
+  z-index: 9999;
 }
 
-/* Start- und Finaltext */
-#scare-text {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-/* Rattenname */
-#rat-name {
-  font-size: 24px;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-/* Rattenbild */
-#rat-image {
-  width: 200px;
-  height: auto;
-  margin-top: 10px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.3);
-}
-
-/* Click Again Text */
-#click-text {
-  font-size: 18px;
-  margin-top: 20px;
-  color: #ccc;
-}
-
-/* Versteckte Elemente */
-.hidden {
+#popup.hidden {
   display: none;
 }
 
-/* Farben für Seltenheiten (optional) */
-.common {
-  color: #a0ffa0;
+#scare-text {
+  margin-bottom: 20px;
+  color: #ff4444;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 2px dashed #ff0000;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  animation: pulse 1.5s infinite;
 }
-.uncommon {
-  color: #60e0a0;
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
-.rare {
-  color: #50c0ff;
+
+#rat-image {
+  max-width: 300px;
+  height: auto;
 }
-.epic {
-  color: #bf80ff;
-}
-.mythic {
-  color: #ff55aa;
-}
-.legendary {
-  color: gold;
-  text-shadow: 0 0 10px gold;
+
+#rat-name {
+  margin-top: 10px;
+  font-size: 1.8rem;
+  color: #fff;
 }
