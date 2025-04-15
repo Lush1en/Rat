@@ -4,7 +4,7 @@ const rats = [
   { name: "Angry Rat", img: "images/rat-1388829-removebg-preview.png", sound: "sounds/ratte3.mp3" },
   { name: "Secret Rat", img: "images/rat-440987-removebg-preview.png", sound: "sounds/ratte4.mp3" },
   { name: "Sigma Rat", img: "images/rat-9497195-removebg-preview.png", sound: "sounds/ratte5.mp3" },
-  { name: "Rat Gang", img: "imageswildlife-3552300-removebg-preview.png", sound: "sounds/ratte5.mp3" },
+  { name: "Rat Gang", img: "images/wildlife-3552300-removebg-preview.png", sound: "sounds/ratte5.mp3" },
 ];
 
 const legendary = {
@@ -22,30 +22,41 @@ let freeze = false;
 document.body.addEventListener("click", () => {
   if (freeze) return;
 
-  // 1 in 10 Chance für die legendäre Ratte
-  const isLegendary = Math.random() < 0.1;
+  popup.classList.remove("hidden");
 
+  // Slot-Animation: 3x zufällige Bilder zeigen
+  let spinCount = 0;
+  const spinInterval = setInterval(() => {
+    const fakeRat = rats[Math.floor(Math.random() * rats.length)];
+    ratImage.src = fakeRat.img;
+    ratName.textContent = "???";
+    spinCount++;
+
+    if (spinCount >= 3) {
+      clearInterval(spinInterval);
+      showFinalRat();
+    }
+  }, 400);
+});
+
+function showFinalRat() {
+  const isLegendary = Math.random() < 0.1;
   const rat = isLegendary
     ? legendary
     : rats[Math.floor(Math.random() * rats.length)];
 
-  // Setze Bild & Name
   ratImage.src = rat.img;
   ratName.textContent = rat.name;
-  popup.classList.remove("hidden");
 
-  // Spiele Sound
   const audio = new Audio(rat.sound);
   audio.play();
 
-  // Freeze bei legendärer Ratte
   if (isLegendary) {
     freeze = true;
     document.body.style.pointerEvents = "none";
     ratName.textContent += " 🏆";
-    // Hier kannst du später Statistik anzeigen etc.
+    // 🔥 Später hier Firebase aufrufen und andere blockieren
   } else {
-    setTimeout(() => popup.classList.add("hidden"), 1500);
+    setTimeout(() => popup.classList.add("hidden"), 2000);
   }
-});
-
+}
