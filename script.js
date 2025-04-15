@@ -10,7 +10,7 @@ const rats = [
 const legendary = {
   name: "🔥 Legendary 🔥",
   img: "images/rat-9497195-removebg-preview.png",
-  sound: "sounds/legend.mp3"
+  sound: "sounds/yeah-boy-114748.mp3"
 };
 
 const popup = document.getElementById("popup");
