@@ -1,10 +1,10 @@
 const rats = [
   { name: "Cartoon Rat", img: "images/cartoon rat.png", sound: "sounds/ratte1.mp3" },
   { name: "Sad Rat", img: "images/mouse-3194768-removebg-preview.png", sound: "sounds/ratte2.mp3" },
-  { name: "Angry Rat", img: "images/rat-1388829-removebg-preview.png", sound: "sounds/ratte3.mp3" },
-  { name: "Secret Rat", img: "images/rat-440987-removebg-preview.png", sound: "sounds/ratte4.mp3" },
+  { name: "Mad Rat", img: "images/rat-1388829-removebg-preview.png", sound: "sounds/ratte3.mp3" },
+  { name: "S Rat", img: "images/rat-440987-removebg-preview.png", sound: "sounds/ratte4.mp3" },
   { name: "Sigma Rat", img: "images/rat-9497195-removebg-preview.png", sound: "sounds/ratte5.mp3" },
-  { name: "Rat Gang", img: "images/wildlife-3552300-removebg-preview.png", sound: "sounds/ratte5.mp3" },
+  { name: "Rats", img: "images/wildlife-3552300-removebg-preview.png", sound: "sounds/ratte5.mp3" },
 ];
 
 const legendary = {
