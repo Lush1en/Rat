@@ -12,47 +12,38 @@ body {
   height: 100vh;
 }
 
+.hidden {
+  display: none;
+}
+
 #popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.8);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px #ff0000;
-  z-index: 9999;
-}
-
-#popup.hidden {
-  display: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 #scare-text {
-  margin-bottom: 20px;
-  color: #ff4444;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border: 2px dashed #ff0000;
-  border-radius: 10px;
-  padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.6);
-  animation: pulse 1.5s infinite;
+  font-size: 20px;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-#rat-image {
-  max-width: 300px;
-  height: auto;
+#click-text {
+  margin-top: 10px;
+  font-size: 18px;
 }
 
 #rat-name {
-  margin-top: 10px;
-  font-size: 1.8rem;
-  color: #fff;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+#rat-image {
+  width: 200px;
+  height: auto;
+  margin-top: 20px;
 }
