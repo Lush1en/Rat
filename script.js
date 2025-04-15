@@ -16,69 +16,33 @@ const legendary = {
 const popup = document.getElementById("popup");
 const ratImage = document.getElementById("rat-image");
 const ratName = document.getElementById("rat-name");
-const scareText = document.getElementById("scare-text");
-const clickText = document.getElementById("click-text");
 
-let drawCount = 0;
-let freeze = false;
-let popupShown = false;
+let clicked = 0;
 
-// Funktion, um basierend auf Chance eine Ratte zu ziehen
-function drawRandomRat() {
-  const rand = Math.random();
-  let cumulative = 0;
+// Liste von Beispielratten
+const rats = [
+  { name: "Stinkratte", image: "images/ratte1.png" },
+  { name: "Laser-Ratte", image: "images/ratte2.png" },
+  { name: "Straßenratte", image: "images/ratte3.png" },
+  { name: "Goldratte", image: "images/ratte4.png" }
+];
 
-  for (let rat of rats) {
-    cumulative += rat.chance;
-    if (rand <= cumulative) {
-      return rat;
+popup.addEventListener("click", () => {
+  if (clicked < 4) {
+    // Ratte auswählen
+    const rat = rats[Math.floor(Math.random() * rats.length)];
+
+    // Anzeigen
+    ratImage.src = rat.image;
+    ratName.textContent = rat.name;
+    ratImage.classList.remove("hidden");
+    ratName.classList.remove("hidden");
+
+    clicked++;
+
+    if (clicked === 4) {
+      ratName.textContent = `FINAL RESULT: ${rat.name} 🎉`;
+      popup.style.boxShadow = "0 0 30px gold";
     }
-  }
-
-  // Fallback (wegen Rundungsfehler)
-  return rats[rats.length - 1];
-}
-
-document.body.addEventListener("click", () => {
-  if (freeze) return;
-
-  // Erster Klick: Popup anzeigen, aber noch keine Ratte
-  if (!popupShown) {
-    popup.classList.remove("hidden");
-    scareText.textContent = "CLICK ME AGAIN";
-    popupShown = true;
-    return;
-  }
-
-  drawCount++;
-  const isFinalDraw = drawCount === 4;
-
-  // 10% Chance auf legendäre Ratte (außer beim finalen Draw)
-  const rat = (Math.random() < 0.1 && !isFinalDraw) ? legendary : drawRandomRat();
-
-  // Rattenbild & Name sichtbar machen
-  ratImage.classList.remove("hidden");
-  ratName.classList.remove("hidden");
-
-  ratImage.src = rat.img;
-  ratName.textContent = `${rat.name} (${rat.rarity})`;
-
-  // Seltenheitsklasse setzen (für Farbe)
-  ratName.className = ""; // Alte Klassen entfernen
-  ratName.classList.add(rat.rarity.toLowerCase());
-
-  // Sound abspielen
-  const audio = new Audio(rat.sound);
-  audio.play();
-
-  if (!isFinalDraw) {
-    clickText.classList.remove("hidden");
-  } else {
-    freeze = true;
-    scareText.textContent = "🎉 FINAL RESULT 🎉";
-    scareText.style.fontSize = "32px";
-    scareText.style.color = "gold";
-    scareText.style.fontWeight = "bold";
-    clickText.classList.add("hidden");
   }
 });
