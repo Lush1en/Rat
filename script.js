@@ -50,9 +50,12 @@ document.body.addEventListener("click", () => {
 
     clicked++;
 
-    if (clicked === 4) {
-      ratName.textContent = `FINAL RESULT: ${rat.name} 🎉`;
-      popup.style.boxShadow = "0 0 30px gold";
-    }
+if (clicked === 4) {
+  ratName.textContent = `FINAL RESULT: ${rat.name} 🎉`;
+  popup.style.boxShadow = "0 0 30px gold";
+
+  // Verstecke den "CLICK ME AGAIN" Text
+  document.getElementById("click-again-text").style.display = "none";
+}
   }
 });
