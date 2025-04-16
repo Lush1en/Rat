@@ -48,6 +48,11 @@ document.body.addEventListener("click", () => {
     ratName.classList.remove("hidden");
     ratRarity.classList.remove("hidden");
 
+    // Sound abspielen
+const audio = new Audio(rat.sound);
+audio.play();
+
+
     clicked++;
 
 if (clicked === 4) {
