@@ -55,7 +55,7 @@ if (clicked === 4) {
   popup.style.boxShadow = "0 0 30px gold";
 
   // Verstecke den "CLICK ME AGAIN" Text
-  document.getElementById("Click anywhere to see the next rat!").style.display = "none";
+  document.getElementById("scare-text").style.display = "none";
 }
   }
 });
